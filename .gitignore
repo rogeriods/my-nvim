@@ -1,0 +1,48 @@
+# Plugin manager (lazy.nvim)
+
+lazy-lock.json  # optional: ignore if you want reproducible installs
+/lazy/
+
+# Installed plugins (inside stdpath('data'))
+
+# Usually: ~/.local/share/nvim/
+
+/site/
+/pack/
+/plugged/
+/lazy/
+
+# Cache & state
+
+/cache/
+/tmp/
+/log/
+logs/
+shada/
+session/
+
+# Swap / backup / undo
+
+*.swp
+*.swo
+*~
+*.bak
+*.undo
+
+# LSP / tooling
+
+.mason/
+
+# Python virtualenvs (if you open projects here)
+
+.venv/
+venv/
+
+# Treesitter compiled parsers
+
+parser/
+
+# OS junk
+
+.DS_Store
+Thumbs.db
