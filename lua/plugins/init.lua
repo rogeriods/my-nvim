@@ -15,9 +15,9 @@ require('lazy').setup {
   require 'plugins.whichkey',
   require 'plugins.conform',
   require 'plugins.telescope',
-  -- require('plugins.lsp'),
+  require 'plugins.lsp',
   require 'plugins.treesitter',
-  -- require('plugins.cmp'),
+  require 'plugins.trouble',
 
   { 'tpope/vim-fugitive' },
   { 'NMAC427/guess-indent.nvim', opts = {} },

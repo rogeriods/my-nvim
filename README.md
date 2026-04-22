@@ -1,5 +1,11 @@
 ### Dependencies to install
 
+Minimal to run Neovim without plugins:
+
+```bash
+sudo dnf install -y gcc make git ripgrep fd-find unzip
+```
+
 For conform:
 
 ```bash
@@ -11,3 +17,5 @@ For treesitter:
 ```bash
 cargo install tree-sitter-cli
 ```
+
+In some distros it is necesssary install clang and clang-devel ex. 'Almalinux 10'
