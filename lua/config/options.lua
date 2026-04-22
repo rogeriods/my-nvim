@@ -1,14 +1,12 @@
 -- Colorscheme of the month
 vim.cmd.colorscheme 'habamax'
 
--- Option from kickstart.nvim 
+-- Option from kickstart.nvim
 vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = true
 
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 vim.o.breakindent = true
 vim.o.undofile = true

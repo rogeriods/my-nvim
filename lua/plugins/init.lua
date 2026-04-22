@@ -1,23 +1,22 @@
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    lazypath,
-  }
-end
+if not (vim.uv or vim.loop).fs_stat(lazypath) then vim.fn.system {
+  'git',
+  'clone',
+  '--filter=blob:none',
+  'https://github.com/folke/lazy.nvim.git',
+  lazypath,
+} end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-  require('plugins.gitsigns'),
-  require('plugins.whichkey'),
-  -- require('plugins.telescope'),
+require('lazy').setup {
+  require 'plugins.gitsigns',
+  require 'plugins.whichkey',
+  require 'plugins.conform',
+  require 'plugins.telescope',
   -- require('plugins.lsp'),
-  -- require('plugins.treesitter'),
+  require 'plugins.treesitter',
   -- require('plugins.cmp'),
 
   { 'tpope/vim-fugitive' },
@@ -29,4 +28,4 @@ require('lazy').setup({
       require('mini.surround').setup()
     end,
   },
-})
+}

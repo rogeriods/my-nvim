@@ -1,5 +1,5 @@
 -- File explorer
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'File explorer' })
 
 -- Move selected text
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
