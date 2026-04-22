@@ -1,3 +1,7 @@
+# My NVIM 
+
+This is my personal Neovim configuration. I’ve tried to keep it clean and use as few plugins as possible.
+
 ### Dependencies to install
 
 Minimal to run Neovim without plugins:

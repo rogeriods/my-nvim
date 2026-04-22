@@ -7,5 +7,5 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Keymaps from kickstart.nvim
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
