@@ -1,5 +1,9 @@
+-- Disable vim global warnings
+---@diagnostic disable: undefined-global
+
 -- File explorer
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'File explorer' })
+vim.keymap.set('n', '<leader>pt', vim.cmd.Tex, { desc = 'File explorer new tab' })
 
 -- Move selected text
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

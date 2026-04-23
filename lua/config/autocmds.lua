@@ -1,3 +1,6 @@
+-- Disable vim global warnings
+---@diagnostic disable: undefined-global
+
 -- Autocommands from kickstart.nvim
 vim.diagnostic.config {
   update_in_insert = false,

@@ -1,3 +1,6 @@
+-- Disable vim global warnings
+---@diagnostic disable: undefined-global
+
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   lazy = false,

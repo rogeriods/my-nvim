@@ -1,10 +1,13 @@
+-- Disable vim global warnings
+---@diagnostic disable: undefined-global
+
 -- Colorscheme of the month
 vim.cmd.colorscheme 'habamax'
 
 -- Option from kickstart.nvim
 vim.o.number = true
 vim.o.mouse = 'a'
-vim.o.showmode = true
+vim.o.showmode = false
 
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 

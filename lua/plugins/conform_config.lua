@@ -1,3 +1,6 @@
+-- Disable vim global warnings
+---@diagnostic disable: undefined-global
+
 return {
   'stevearc/conform.nvim',
   opts = {},

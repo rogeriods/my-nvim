@@ -1,8 +1,6 @@
 return { -- Adds git related signs to the gutter, as well as utilities for managing changes
   'lewis6991/gitsigns.nvim',
   ---@module 'gitsigns'
-  ---@type Gitsigns.Config
-  ---@diagnostic disable-next-line: missing-fields
   opts = {
     signs = {
       add = { text = '+' }, ---@diagnostic disable-line: missing-fields
