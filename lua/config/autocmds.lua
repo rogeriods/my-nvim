@@ -1,4 +1,4 @@
--- Disable vim global warnings
+-- Disable warnings about undefined globals (useful for vim global like `vim`)
 ---@diagnostic disable: undefined-global
 
 -- Autocommands from kickstart.nvim

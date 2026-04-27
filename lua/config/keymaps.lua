@@ -1,9 +1,9 @@
--- Disable vim global warnings
+-- Disable warnings about undefined globals (useful for vim global like `vim`)
 ---@diagnostic disable: undefined-global
 
 -- File explorer
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'File explorer' })
-vim.keymap.set('n', '<leader>pt', vim.cmd.Tex, { desc = 'File explorer new tab' })
+vim.keymap.set('n', '<C-b>', vim.cmd.Ex, { desc = 'File explorer' })
+vim.keymap.set('n', '<C-t>', vim.cmd.Tex, { desc = 'File explorer new tab' })
 
 -- Move selected text
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

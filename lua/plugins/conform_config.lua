@@ -1,4 +1,4 @@
--- Disable vim global warnings
+-- Disable warnings about undefined globals (useful for vim global like `vim`)
 ---@diagnostic disable: undefined-global
 
 return {
@@ -14,10 +14,10 @@ return {
         -- c = { "clang-format" },
         -- cpp = { "clang-format" },
         lua = { 'stylua' },
-        go = { 'gofmt' },
+        -- go = { 'gofmt' },
         -- python = { "isort", "black" },
-        javascript = { 'prettier' },
-        typescript = { 'prettier' },
+        -- javascript = { 'prettier' },
+        -- typescript = { 'prettier' },
         rust = { 'rustfmt' },
       },
       formatters = {

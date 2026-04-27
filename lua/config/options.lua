@@ -1,4 +1,4 @@
--- Disable vim global warnings
+-- Disable warnings about undefined globals (useful for vim global like `vim`)
 ---@diagnostic disable: undefined-global
 
 -- Colorscheme of the month
@@ -25,6 +25,8 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+
+vim.opt.colorcolumn = {'80','120'}
 
 -- Custom
 vim.o.wrap = false

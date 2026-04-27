@@ -1,4 +1,4 @@
--- Disable vim global warnings
+-- Disable warnings about undefined globals (useful for vim global like `vim`)
 ---@diagnostic disable: undefined-global
 
 return { -- Fuzzy Finder (files, lsp, etc)
@@ -28,31 +28,5 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-
-    -- Override default behavior and theme when searching
-    vim.keymap.set(
-      'n',
-      '<leader>/',
-      function()
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end,
-      { desc = '[/] Fuzzily search in current buffer' }
-    )
-
-    -- It's also possible to pass additional configuration options.
-    vim.keymap.set(
-      'n',
-      '<leader>s/',
-      function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end,
-      { desc = '[S]earch [/] in Open Files' }
-    )
   end,
 }
