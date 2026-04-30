@@ -4,6 +4,10 @@
 -- Colorscheme of the month
 vim.cmd.colorscheme 'habamax'
 
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+
 -- Option from kickstart.nvim
 vim.o.number = true
 vim.o.mouse = 'a'
@@ -22,9 +26,10 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.list = false
 vim.o.inccommand = 'split'
-vim.o.cursorline = true
+vim.o.cursorline = false
 vim.o.scrolloff = 10
 
+vim.opt.relativenumber = true
 vim.opt.colorcolumn = {'100'}
 
 -- Custom
