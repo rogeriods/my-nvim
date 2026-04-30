@@ -22,4 +22,5 @@ For treesitter:
 cargo install tree-sitter-cli
 ```
 
-In some distros it is necesssary install clang and clang-devel ex. 'Almalinux 10'
+In some distros it is necesssary install clang and clang-devel ex. 'Almalinux 10' or 
+sudo apt install -y clang libclang-dev for 'Ubuntu'

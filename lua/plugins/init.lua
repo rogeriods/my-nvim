@@ -4,13 +4,15 @@
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 -- Install lazy.nvim if it's not already present
-if not (vim.uv or vim.loop).fs_stat(lazypath) then vim.fn.system {
-  'git',
-  'clone',
-  '--filter=blob:none',
-  'https://github.com/folke/lazy.nvim.git',
-  lazypath,
-} end
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    lazypath,
+  }
+end
 
 -- Add lazy.nvim to runtime path
 vim.opt.rtp:prepend(lazypath)
@@ -26,6 +28,7 @@ require('lazy').setup {
   -- Simple plugins (minimal or no configuration)
   { 'tpope/vim-fugitive' },
   { 'NMAC427/guess-indent.nvim', opts = {} },
+
   { -- Displays available keybindings in a popup as you type
     'folke/which-key.nvim',
     event = 'VimEnter',
@@ -38,6 +41,7 @@ require('lazy').setup {
       },
     },
   },
+
   { -- Git signs in the gutter + hunk management utilities
     'lewis6991/gitsigns.nvim',
     ---@module 'gitsigns'
@@ -51,13 +55,7 @@ require('lazy').setup {
       },
     },
   },
-  { -- Colofull todo, warn, info, and err comments
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    ---@module 'todo-comments'
-    opts = { signs = false },
-  },
+
   { -- Some small plugins and statusline
     'nvim-mini/mini.nvim',
     config = function()

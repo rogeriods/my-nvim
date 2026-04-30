@@ -14,10 +14,10 @@ return {
         -- c = { "clang-format" },
         -- cpp = { "clang-format" },
         lua = { 'stylua' },
-        -- go = { 'gofmt' },
+        go = { 'gofmt' },
         -- python = { "isort", "black" },
         -- javascript = { 'prettier' },
-        -- typescript = { 'prettier' },
+        typescript = { 'prettier' },
         rust = { 'rustfmt' },
       },
       formatters = {
@@ -27,6 +27,11 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>f', function() require('conform').format { bufnr = 0 } end, { desc = 'Format the current file' })
+    vim.keymap.set(
+      'n',
+      '<leader>f',
+      function() require('conform').format { bufnr = 0 } end,
+      { desc = 'Format the current file' }
+    )
   end,
 }

@@ -8,7 +8,19 @@ return { -- Highlight, edit, and navigate code
   branch = 'main',
   -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
   config = function()
-    local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+    local parsers = {
+      'bash',
+      'c',
+      'diff',
+      'html',
+      'lua',
+      'luadoc',
+      'markdown',
+      'markdown_inline',
+      'query',
+      'vim',
+      'vimdoc',
+    }
     require('nvim-treesitter').install(parsers)
 
     ---@param buf integer
@@ -34,7 +46,9 @@ return { -- Highlight, edit, and navigate code
         if vim.tbl_contains(installed_parsers, language) then
           treesitter_try_attach(buf, language)
         elseif vim.tbl_contains(available_parsers, language) then
-          require('nvim-treesitter').install(language):await(function() treesitter_try_attach(buf, language) end)
+          require('nvim-treesitter')
+            .install(language)
+            :await(function() treesitter_try_attach(buf, language) end)
         else
           treesitter_try_attach(buf, language)
         end

@@ -24,9 +24,8 @@ vim.o.list = false
 vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
-vim.o.confirm = true
 
-vim.opt.colorcolumn = {'80','120'}
+vim.opt.colorcolumn = {'100'}
 
 -- Custom
 vim.o.wrap = false
