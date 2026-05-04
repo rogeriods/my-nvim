@@ -24,6 +24,7 @@ require('lazy').setup {
   require 'plugins.lsp',
   require 'plugins.treesitter',
   require 'plugins.trouble',
+  require 'plugins.gruber_theme',
 
   -- Simple plugins (minimal or no configuration)
   { 'tpope/vim-fugitive' },
