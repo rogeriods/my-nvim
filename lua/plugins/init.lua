@@ -24,11 +24,21 @@ require('lazy').setup {
   require 'plugins.lsp',
   require 'plugins.treesitter',
   require 'plugins.trouble',
-  require 'plugins.gruber_theme',
+  -- require 'plugins.gruber_theme',
 
   -- Simple plugins (minimal or no configuration)
   { 'tpope/vim-fugitive' },
   { 'NMAC427/guess-indent.nvim', opts = {} },
+
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {
+      indent = { char = '┆' },
+    },
+  },
 
   { -- Displays available keybindings in a popup as you type
     'folke/which-key.nvim',
