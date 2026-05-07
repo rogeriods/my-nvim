@@ -37,9 +37,16 @@ return {
         'lua_ls',
         'rust_analyzer',
         'gopls',
+        'jdtls',
       },
+      -- Via :Mason add jdtls, java-debug-adapter, java-test, google-java-format
       handlers = {
         function(server_name) -- default handler (optional)
+          -- Using GPT to adjust for Java projects
+          if server_name == 'jdtls' then
+            return
+          end
+
           require('lspconfig')[server_name].setup {
             capabilities = capabilities,
           }

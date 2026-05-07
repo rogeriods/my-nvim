@@ -16,7 +16,7 @@ return {
         lua = { 'stylua' },
         go = { 'gofmt' },
         -- python = { "isort", "black" },
-        -- javascript = { 'prettier' },
+        javascript = { 'prettier' },
         typescript = { 'prettier' },
         rust = { 'rustfmt' },
       },
