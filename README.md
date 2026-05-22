@@ -1,26 +1,67 @@
-# My NVIM 
+# My Neovim Config
 
-This is my personal Neovim configuration. I’ve tried to keep it clean and use as few plugins as possible.
+A personalized Neovim setup built on top of Kickstart Neovim, featuring custom configurations, workflow tweaks, and a handpicked set of favorite plugins.
 
-### Dependencies to install
+### Install External Dependencies
 
-Minimal to run Neovim without plugins:
+Below you can find OS specific install instructions for Neovim and dependencies.
 
-```bash
-sudo dnf install -y gcc make git ripgrep fd-find unzip
+#### Windows Installation
+
+<details><summary>Windows with gcc/make using chocolatey</summary>
+
 ```
-
-For conform:
-
-```bash
-cargo install stylua
+choco install -y neovim git ripgrep wget fd unzip gzip mingw make tree-sitter
 ```
+</details>
+<details><summary>WSL (Windows Subsystem for Linux)</summary>
 
-For treesitter:
-
-```bash
-cargo install tree-sitter-cli
 ```
+wsl --install
+wsl
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt update
+sudo apt install make gcc ripgrep fd-find tree-sitter-cli unzip git xclip neovim
+```
+</details>
 
-In some distros it is necesssary install clang and clang-devel ex. 'Almalinux 10' or 
-sudo apt install -y clang libclang-dev for 'Ubuntu'
+#### Linux Install
+<details><summary>Ubuntu Install Steps</summary>
+
+```
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt update
+sudo apt install make gcc ripgrep fd-find tree-sitter-cli unzip git xclip neovim
+```
+</details>
+<details><summary>Debian Install Steps</summary>
+
+```
+sudo apt update
+sudo apt install make gcc ripgrep fd-find tree-sitter-cli unzip git xclip curl
+
+# Now we install nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo mkdir -p /opt/nvim-linux-x86_64
+sudo chmod a+rX /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+
+# make it available in /usr/local/bin, distro installs to /usr/bin
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+```
+</details>
+<details><summary>Fedora Install Steps</summary>
+
+```
+sudo dnf install -y gcc make git ripgrep fd-find tree-sitter-cli unzip neovim
+```
+</details>
+
+<details><summary>Arch Install Steps</summary>
+
+```
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd tree-sitter-cli unzip neovim
+```
+</details>
+
