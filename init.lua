@@ -163,26 +163,26 @@ do
   }
 
   -- Neo-tree is a Neovim plugin to browse the file system
-  local plugins = {
-    { src = 'https://github.com/nvim-neo-tree/neo-tree.nvim', version = vim.version.range '*' },
-    'https://github.com/nvim-lua/plenary.nvim',
-    'https://github.com/MunifTanjim/nui.nvim',
-  }
+  -- local plugins = {
+  --   { src = 'https://github.com/nvim-neo-tree/neo-tree.nvim', version = vim.version.range '*' },
+  --   'https://github.com/nvim-lua/plenary.nvim',
+  --   'https://github.com/MunifTanjim/nui.nvim',
+  -- }
 
-  if vim.g.have_nerd_font then table.insert(plugins, 'https://github.com/nvim-tree/nvim-web-devicons') end
+  -- if vim.g.have_nerd_font then table.insert(plugins, 'https://github.com/nvim-tree/nvim-web-devicons') end
 
-  vim.pack.add(plugins)
-  vim.keymap.set('n', '\\', '<Cmd>Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
+  -- vim.pack.add(plugins)
+  -- vim.keymap.set('n', '\\', '<Cmd>Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
 
-  require('neo-tree').setup {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
-        },
-      },
-    },
-  }
+  -- require('neo-tree').setup {
+  --   filesystem = {
+  --     window = {
+  --       mappings = {
+  --         ['\\'] = 'close_window',
+  --       },
+  --     },
+  --   },
+  -- }
 
   -- [[ Colorscheme ]]
   vim.pack.add {
@@ -217,14 +217,21 @@ do
     before_highlight = function(_, _, _) end,
   }
 
-  vim.cmd 'colorscheme rose-pine'
+  -- vim.cmd 'colorscheme rose-pine'
+  vim.cmd 'colorscheme darkblue'
+  vim.cmd [[
+    hi Normal guibg=NONE ctermbg=NONE
+    hi NormalNC guibg=NONE ctermbg=NONE
+    hi EndOfBuffer guibg=NONE ctermbg=NONE
+    hi SignColumn guibg=NONE ctermbg=NONE
+  ]]
 
   -- Git on neovim
   vim.pack.add { gh 'tpope/vim-fugitive' }
 
   -- Highlight todo, notes, etc in comments
-  vim.pack.add { gh 'folke/todo-comments.nvim' }
-  require('todo-comments').setup { signs = false }
+  -- vim.pack.add { gh 'folke/todo-comments.nvim' }
+  -- require('todo-comments').setup { signs = false }
 
   -- [[ mini.nvim ]]
   --  A collection of various small independent plugins/modules
@@ -384,8 +391,8 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     -- clangd = {},
-    -- gopls = {},
-    -- pyright = {},
+    gopls = {},
+    pyright = {},
     -- rust_analyzer = {},
     -- ts_ls = {},
 
@@ -471,9 +478,9 @@ do
     -- You can also specify external formatters in here.
     formatters_by_ft = {
       -- rust = { 'rustfmt' },
-      -- go = { 'gofmt' },
+      go = { 'gofmt' },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      python = { 'isort', 'black' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
