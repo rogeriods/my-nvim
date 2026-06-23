@@ -28,7 +28,7 @@ do
   vim.o.tabstop = 4
   vim.o.softtabstop = 4
   vim.o.shiftwidth = 4
-  vim.opt.colorcolumn = { '100' }
+  -- vim.opt.colorcolumn = { '100' }
 
   -- Sync clipboard between OS and Neovim
   vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
@@ -156,11 +156,11 @@ do
   }
 
   -- Show indentation lines
-  vim.pack.add { 'https://github.com/lukas-reineke/indent-blankline.nvim' }
-  require('ibl').setup {
-    indent = { char = '▏' },
-    scope = { enabled = false },
-  }
+  -- vim.pack.add { 'https://github.com/lukas-reineke/indent-blankline.nvim' }
+  -- require('ibl').setup {
+  --   indent = { char = '▏' },
+  --   scope = { enabled = false },
+  -- }
 
   -- Neo-tree is a Neovim plugin to browse the file system
   -- local plugins = {
@@ -193,7 +193,7 @@ do
   }
 
   require('rose-pine').setup {
-    variant = 'auto', -- auto, main, moon, or dawn
+    variant = 'main', -- auto, main, moon, or dawn
     dark_variant = 'main', -- main, moon, or dawn
     dim_inactive_windows = false,
     extend_background_behind_borders = true,
@@ -217,14 +217,14 @@ do
     before_highlight = function(_, _, _) end,
   }
 
-  -- vim.cmd 'colorscheme rose-pine'
-  vim.cmd 'colorscheme darkblue'
-  vim.cmd [[
-    hi Normal guibg=NONE ctermbg=NONE
-    hi NormalNC guibg=NONE ctermbg=NONE
-    hi EndOfBuffer guibg=NONE ctermbg=NONE
-    hi SignColumn guibg=NONE ctermbg=NONE
-  ]]
+  vim.cmd 'colorscheme rose-pine'
+  -- vim.cmd 'colorscheme darkblue'
+  -- vim.cmd [[
+  --   hi Normal guibg=NONE ctermbg=NONE
+  --   hi NormalNC guibg=NONE ctermbg=NONE
+  --   hi EndOfBuffer guibg=NONE ctermbg=NONE
+  --   hi SignColumn guibg=NONE ctermbg=NONE
+  -- ]]
 
   -- Git on neovim
   vim.pack.add { gh 'tpope/vim-fugitive' }
@@ -392,8 +392,8 @@ do
   local servers = {
     -- clangd = {},
     gopls = {},
-    pyright = {},
-    -- rust_analyzer = {},
+    -- pyright = {},
+    rust_analyzer = {},
     -- ts_ls = {},
 
     stylua = {}, -- Used to format Lua code
@@ -477,10 +477,10 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
-      -- rust = { 'rustfmt' },
+      rust = { 'rustfmt' },
       go = { 'gofmt' },
       -- Conform can also run multiple formatters sequentially
-      python = { 'isort', 'black' },
+      -- python = { 'isort', 'black' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
