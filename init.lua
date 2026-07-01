@@ -28,7 +28,7 @@ do
   vim.o.tabstop = 4
   vim.o.softtabstop = 4
   vim.o.shiftwidth = 4
-  -- vim.opt.colorcolumn = { '100' }
+  vim.opt.colorcolumn = { '100' }
 
   -- Sync clipboard between OS and Neovim
   vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
@@ -163,75 +163,51 @@ do
   -- }
 
   -- Neo-tree is a Neovim plugin to browse the file system
-  -- local plugins = {
-  --   { src = 'https://github.com/nvim-neo-tree/neo-tree.nvim', version = vim.version.range '*' },
-  --   'https://github.com/nvim-lua/plenary.nvim',
-  --   'https://github.com/MunifTanjim/nui.nvim',
-  -- }
+  local plugins = {
+    { src = 'https://github.com/nvim-neo-tree/neo-tree.nvim', version = vim.version.range '*' },
+    'https://github.com/nvim-lua/plenary.nvim',
+    'https://github.com/MunifTanjim/nui.nvim',
+  }
 
-  -- if vim.g.have_nerd_font then table.insert(plugins, 'https://github.com/nvim-tree/nvim-web-devicons') end
+  if vim.g.have_nerd_font then table.insert(plugins, 'https://github.com/nvim-tree/nvim-web-devicons') end
 
-  -- vim.pack.add(plugins)
-  -- vim.keymap.set('n', '\\', '<Cmd>Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
+  vim.pack.add(plugins)
+  vim.keymap.set('n', '\\', '<Cmd>Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
 
-  -- require('neo-tree').setup {
-  --   filesystem = {
-  --     window = {
-  --       mappings = {
-  --         ['\\'] = 'close_window',
-  --       },
-  --     },
-  --   },
-  -- }
+  require('neo-tree').setup {
+    filesystem = {
+      window = {
+        mappings = {
+          ['\\'] = 'close_window',
+        },
+      },
+    },
+  }
 
   -- [[ Colorscheme ]]
-  vim.pack.add {
-    {
-      src = 'https://github.com/rose-pine/neovim',
-      name = 'rose-pine',
-    },
-  }
+  vim.pack.add { { src = 'https://github.com/wincent/base16-nvim', name = 'base16-nvim' } }
+  vim.cmd [[colorscheme classic-dark]]
+  vim.o.background = 'dark'
+  vim.cmd [[hi Normal ctermbg=NONE]]
+  -- Less visible window separator
+  vim.api.nvim_set_hl(0, 'WinSeparator', { fg = 1250067 })
+  local marked = vim.api.nvim_get_hl(0, { name = 'PMenu' })
+  vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { fg = marked.fg, bg = marked.bg, ctermfg = marked.ctermfg, ctermbg = marked.ctermbg, bold = true })
 
-  require('rose-pine').setup {
-    variant = 'main', -- auto, main, moon, or dawn
-    dark_variant = 'main', -- main, moon, or dawn
-    dim_inactive_windows = false,
-    extend_background_behind_borders = true,
-    disable_background = true,
-
-    enable = {
-      terminal = true,
-      legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-      migrations = true, -- Handle deprecated options automatically
-    },
-
-    styles = {
-      bold = true,
-      italic = false,
-      transparency = false,
-    },
-
-    groups = {},
-    palette = {},
-    highlight_groups = {},
-    before_highlight = function(_, _, _) end,
-  }
-
-  vim.cmd 'colorscheme rose-pine'
   -- vim.cmd 'colorscheme darkblue'
-  -- vim.cmd [[
-  --   hi Normal guibg=NONE ctermbg=NONE
-  --   hi NormalNC guibg=NONE ctermbg=NONE
-  --   hi EndOfBuffer guibg=NONE ctermbg=NONE
-  --   hi SignColumn guibg=NONE ctermbg=NONE
-  -- ]]
+  vim.cmd [[
+     hi Normal guibg=NONE ctermbg=NONE
+     hi NormalNC guibg=NONE ctermbg=NONE
+     hi EndOfBuffer guibg=NONE ctermbg=NONE
+     hi SignColumn guibg=NONE ctermbg=NONE
+   ]]
 
   -- Git on neovim
   vim.pack.add { gh 'tpope/vim-fugitive' }
 
   -- Highlight todo, notes, etc in comments
-  -- vim.pack.add { gh 'folke/todo-comments.nvim' }
-  -- require('todo-comments').setup { signs = false }
+  vim.pack.add { gh 'folke/todo-comments.nvim' }
+  require('todo-comments').setup { signs = false }
 
   -- [[ mini.nvim ]]
   --  A collection of various small independent plugins/modules
